@@ -26,7 +26,12 @@ namespace Darbbas4.Controllers
             var request = new RestRequest(Method.GET);
             IRestResponse response = client.Execute(request);
             JObject json = JObject.Parse(response.Content);
+            //int a = 0;
+            //List<string> streets = new List<string>();
+            //string check = string.Format(json["results"].Values<JObject>().Where(m => m["distance"]?.Value<string>() != null).AsJEnumerable());
+
             return json;
+
 
         }
 
