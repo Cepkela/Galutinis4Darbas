@@ -12,18 +12,17 @@ namespace Darbbas4.Controllers
     public class PathController : ApiController
     {
         // GET: api/Path
-        [HttpGet]
         public IEnumerable<string> Get()
         {
             return new string[] { "value1", "value2" };
         }
 
         // GET: api/Path/5
-        public JObject Get(string pav)
+        public JObject Get(string pav, string pav2)
         {
             PlaceRep pr = new PlaceRep();
             JObject j = new JObject();
-            j = pr.Action(pav, "Naujamiestis");
+            j = pr.Action(pav, pav2);
             return j;
 
         }
