@@ -32,6 +32,7 @@ namespace Darbbas4.Controllers
             JToken datas = json["data"];
             JToken datas2 = datas[0];
             return datas2; 
+            ///s
         }
 
         // POST: api/City
