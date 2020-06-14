@@ -9,10 +9,11 @@ namespace Darbbas4.Models
     public class Place
     {
         public string startPoint { get; set; }
-        public string startPointID { get; set; }
+        public string startLink { get; set; }
         public string endPoint { get; set; }
-        public string endPointID { get; set; }
-        public string distance { get; set; }
+        public string endLink { get; set; }
+
+        public double distance { get; set; }
 
         public ArrayList itemList = new ArrayList();
 
@@ -20,13 +21,12 @@ namespace Darbbas4.Models
         {
 
         }
-        public Place(string startPoint, string endPoint, string distance, string startPointID, string endPointID)
+        public Place(string startPoint, string endPoint, double distance)
         {
             this.startPoint = startPoint;
             this.endPoint = endPoint;
             this.distance = distance;
-            this.startPointID = startPointID;
-            this.endPointID = endPointID;
+
         }
     }
 }
