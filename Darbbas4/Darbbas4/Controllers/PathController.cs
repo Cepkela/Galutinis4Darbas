@@ -5,6 +5,7 @@ using Newtonsoft.Json.Linq;
 using RestSharp;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
@@ -34,15 +35,30 @@ namespace Darbbas4.Controllers
             p.itemList.Add(data.streets);
             p.startPoint = pav;
             p.endPoint = pav2;
-
+            using (StreamWriter sw = new StreamWriter((@"C:\Users\Cepkis\Source\Repos\Galutinis4Darbas\Darbbas4\Darbbas4\rez.txt"), true))
+                {
+                sw.WriteLine(data);
+                }
+            StreamReader sr = new StreamReader(@"C:\Users\Cepkis\Source\Repos\Galutinis4Darbas\Darbbas4\Darbbas4\rez.txt");
+            string line;
+            char[] chars = { ']',',' };
+            while ((line = sr.ReadLine()) != null)
+            {
+                if (line.Contains("streets"))
+                {
+                    while (!line.Contains("]"))
+                    {
+                        line = sr.ReadLine();
+                        p.itemList.Add(line);
+                    }
+                }
+            }
             if (!string.IsNullOrEmpty(jsona))
             {
-                string b = jsona.Split(',')[0];
+                string b = jsona.Split(',')[100];
                 if (b == "streets")
                     p.itemList.Add(b);
             }
-            //s
-
             return p;
         }
 
