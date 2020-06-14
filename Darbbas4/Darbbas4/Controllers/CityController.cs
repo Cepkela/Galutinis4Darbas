@@ -21,18 +21,28 @@ namespace Darbbas4.Controllers
         // GET: api/City/5
         public JToken Get(string pav)
         {
-            var client = new RestClient("https://wft-geo-db.p.rapidapi.com/v1/geo/cities?namePrefix=" + pav);
-            var request = new RestRequest(Method.GET);
-            request.AddHeader("x-rapidapi-host", "wft-geo-db.p.rapidapi.com");
-            request.AddHeader("x-rapidapi-key", "f5c564499dmshdd7aa9b68712bd9p1c9a55jsn05309b38eba0");
-            IRestResponse response = client.Execute(request);
+            try
+            {
+                var client = new RestClient("https://wft-geo-db.p.rapidapi.com/v1/geo/cities?namePrefix=" + pav);
+                var request = new RestRequest(Method.GET);
 
-            JObject json = JObject.Parse(response.Content);
-            string jsona = JsonConvert.SerializeObject(json, Formatting.Indented);
-            JToken datas = json["data"];
-            JToken datas2 = datas[0];
-            return datas2; 
-            ///s
+                request.AddHeader("x-rapidapi-host", "wft-geo-db.p.rapidapi.com");
+                request.AddHeader("x-rapidapi-key", "f5c564499dmshdd7aa9b68712bd9p1c9a55jsn05309b38eba0");
+                IRestResponse response = client.Execute(request);
+
+
+                JObject json = JObject.Parse(response.Content);
+                string jsona = JsonConvert.SerializeObject(json, Formatting.Indented);
+                JToken datas = json["data"];
+                JToken datas2 = datas[0];
+                return datas2;
+            }
+            catch
+            {
+
+                JToken j = "viko nepavyko";
+                return j;
+            }
         }
 
         // POST: api/City
