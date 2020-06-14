@@ -14,7 +14,7 @@ namespace Darbbas4.Models
         public string endPointID { get; set; }
         public double distance { get; set; }
 
-        public ArrayList streets = new ArrayList();
+        public ArrayList itemList = new ArrayList();
 
         public Place()
         {
