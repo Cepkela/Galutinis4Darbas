@@ -1,4 +1,6 @@
-﻿using RestSharp;
+﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+using RestSharp;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,14 +19,19 @@ namespace Darbbas4.Controllers
         }
 
         // GET: api/City/5
-        public IRestResponse Get(string pav)
+        public JToken Get(string pav)
         {
             var client = new RestClient("https://wft-geo-db.p.rapidapi.com/v1/geo/cities?namePrefix=" + pav);
             var request = new RestRequest(Method.GET);
             request.AddHeader("x-rapidapi-host", "wft-geo-db.p.rapidapi.com");
             request.AddHeader("x-rapidapi-key", "44567d52ccmshf11e31b8ae8fb6dp14ea5ejsn12f0d378b535");
             IRestResponse response = client.Execute(request);
-            return response;
+
+            JObject json = JObject.Parse(response.Content);
+            string jsona = JsonConvert.SerializeObject(json, Formatting.Indented);
+            JToken datas = json["data"];
+            JToken datas2 = datas[0];
+            return datas2; 
         }
 
         // POST: api/City

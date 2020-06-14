@@ -29,7 +29,6 @@ namespace Darbbas4.Controllers
             IRestResponse response = client.Execute(request);
             JObject json = JObject.Parse(response.Content);
             Place p = new Place();
-            string jsona = JsonConvert.SerializeObject(json, Formatting.Indented);
             JToken datas = json["route"];
             p.distance = Convert.ToDouble(datas["distance"]);
             JToken datas2 = datas["legs"];
@@ -38,8 +37,8 @@ namespace Darbbas4.Controllers
 
             p.startPoint = pav;
             p.endPoint = pav2;
-            p.startLink = "/api/City/" + pav;
-            p.endLink = "/api/City/" + pav2;
+            p.startLink = "/api/City?pav=" + pav;
+            p.endLink = "/api/City?pav=" + pav2;
             int b = datas4.Count();
             for (int i = 0; i < b; i++)
             {
