@@ -38,6 +38,8 @@ namespace Darbbas4.Controllers
 
             p.startPoint = pav;
             p.endPoint = pav2;
+            p.startLink = "/api/City/" + pav;
+            p.endLink = "/api/City/" + pav2;
             int b = datas4.Count();
             for (int i = 0; i < b; i++)
             {
