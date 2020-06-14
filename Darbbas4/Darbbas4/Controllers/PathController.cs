@@ -30,17 +30,19 @@ namespace Darbbas4.Controllers
             JObject json = JObject.Parse(response.Content);
             string jsona = JsonConvert.SerializeObject(json, Formatting.Indented);
             dynamic data = JObject.Parse(jsona);
-
+            JToken datas = json["route"];
+            dynamic dinJson = JsonConvert.DeserializeObject(jsona);
             Place p = new Place();
             p.itemList.Add(data.streets);
             p.startPoint = pav;
             p.endPoint = pav2;
             using (StreamWriter sw = new StreamWriter((@"C:\Users\Cepkis\Source\Repos\Galutinis4Darbas\Darbbas4\Darbbas4\rez.txt"), true))
                 {
-                sw.WriteLine(data);
+                sw.WriteLine(datas);
                 }
             StreamReader sr = new StreamReader(@"C:\Users\Cepkis\Source\Repos\Galutinis4Darbas\Darbbas4\Darbbas4\rez.txt");
             string line;
+
             char[] chars = { ']',',' };
             while ((line = sr.ReadLine()) != null)
             {
