@@ -1,4 +1,6 @@
-﻿using Darbbas4.Rep;
+﻿using Darbbas4.Models;
+using Darbbas4.Rep;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using RestSharp;
 using System;
@@ -19,7 +21,7 @@ namespace Darbbas4.Controllers
         }
 
         // GET: api/Path/5
-        public JObject Get(string pav, string pav2)
+        public Place Get(string pav, string pav2)
         {
             var client = new RestClient("https://www.mapquestapi.com/directions/v2/route?key=IUioukh6TOaFypNnaHuJfuKM0xDknNti&from=" + pav + "&to=" + pav2 + "&outFormat=json&ambiguities=ignore&routeType=fastest&doReverseGeocode=false&enhancedNarrative=false&avoidTimedConditions=false");
             var request = new RestRequest(Method.GET);
