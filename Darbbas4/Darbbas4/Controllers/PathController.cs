@@ -25,23 +25,8 @@ namespace Darbbas4.Controllers
             var request = new RestRequest(Method.GET);
             IRestResponse response = client.Execute(request);
             JObject json = JObject.Parse(response.Content);
-            string jsona = JsonConvert.SerializeObject(json, Formatting.Indented);
-            dynamic data = JObject.Parse(jsona);
+            return json;
 
-            Place p = new Place();
-            p.itemList.Add(data.streets);
-            p.startPoint = pav;
-            p.endPoint = pav2;
-
-            if (!string.IsNullOrEmpty(jsona))
-            {
-                string b = jsona.Split(',')[0];
-                if (b == "streets")
-                    p.itemList.Add(b);
-            }
-
-
-            return p;
         }
 
         // POST: api/Path
