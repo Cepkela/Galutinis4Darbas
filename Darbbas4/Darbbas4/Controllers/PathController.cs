@@ -28,37 +28,27 @@ namespace Darbbas4.Controllers
             var request = new RestRequest(Method.GET);
             IRestResponse response = client.Execute(request);
             JObject json = JObject.Parse(response.Content);
-            string jsona = JsonConvert.SerializeObject(json, Formatting.Indented);
-            dynamic data = JObject.Parse(jsona);
-
             Place p = new Place();
-            p.itemList.Add(data.streets);
+            string jsona = JsonConvert.SerializeObject(json, Formatting.Indented);
+            JToken datas = json["route"];
+            p.distance = Convert.ToDouble(datas["distance"]);
+            JToken datas2 = datas["legs"];
+            JToken datas3 = datas2[0];
+            JToken datas4 = datas3["maneuvers"];
+
             p.startPoint = pav;
             p.endPoint = pav2;
-            using (StreamWriter sw = new StreamWriter((@"C:\Users\Cepkis\Source\Repos\Galutinis4Darbas\Darbbas4\Darbbas4\rez.txt"), true))
-                {
-                sw.WriteLine(data);
-                }
-            StreamReader sr = new StreamReader(@"C:\Users\Cepkis\Source\Repos\Galutinis4Darbas\Darbbas4\Darbbas4\rez.txt");
-            string line;
-            char[] chars = { ']',',' };
-            while ((line = sr.ReadLine()) != null)
+            int b = datas4.Count();
+            for (int i = 0; i < b; i++)
             {
-                if (line.Contains("streets"))
-                {
-                    while (!line.Contains("]"))
-                    {
-                        line = sr.ReadLine();
-                        p.itemList.Add(line);
-                    }
-                }
+                JToken datas5 = datas4[i];
+                JToken datas6 = datas5["streets"];
+                p.itemList.Add(datas6);
             }
-            if (!string.IsNullOrEmpty(jsona))
-            {
-                string b = jsona.Split(',')[100];
-                if (b == "streets")
-                    p.itemList.Add(b);
-            }
+
+
+
+
             return p;
         }
 
