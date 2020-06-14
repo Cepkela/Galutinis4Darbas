@@ -51,7 +51,6 @@ namespace Darbbas4.Controllers
                         line = sr.ReadLine();
                         p.itemList.Add(line);
                     }
-
                 }
             }
             if (!string.IsNullOrEmpty(jsona))
