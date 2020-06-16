@@ -85,6 +85,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Cash.cs" />
     <Compile Include="Controllers\CityController.cs" />
     <Compile Include="Controllers\PathController.cs" />
     <Compile Include="Global.asax.cs">

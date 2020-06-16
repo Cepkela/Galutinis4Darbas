@@ -40,7 +40,7 @@ namespace Darbbas4.Controllers
             catch
             {
 
-                JToken j = "viko nepavyko";
+                JToken j = "Kazkas blogai";
                 return j;
             }
         }
