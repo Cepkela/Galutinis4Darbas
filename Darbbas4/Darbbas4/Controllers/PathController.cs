@@ -64,17 +64,17 @@ namespace Darbbas4.Controllers
 
         // POST: api/Path
         [HttpPost]
-        public void Post([FromBody] string value)
+        public void Post()
         {
         }
 
         // PUT: api/Path/5
-        public void Put(int id, [FromBody] string value)
+        public void Put()
         {
         }
 
         // DELETE: api/ApiWithActions/5
-        public void Delete(int id)
+        public void Delete()
         {
         }
     }

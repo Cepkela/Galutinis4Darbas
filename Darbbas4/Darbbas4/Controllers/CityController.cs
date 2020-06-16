@@ -47,17 +47,17 @@ namespace Darbbas4.Controllers
         }
 
         // POST: api/City
-        public void Post([FromBody]string value)
+        public void Post()
         {
         }
 
         // PUT: api/City/5
-        public void Put(int id, [FromBody]string value)
+        public void Put()
         {
         }
 
         // DELETE: api/City/5
-        public void Delete(int id)
+        public void Delete()
         {
         }
     }
