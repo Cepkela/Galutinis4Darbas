@@ -7,12 +7,12 @@ using System.Web.Http;
 namespace Darbbas4.Controllers
 {
     /// <summary>
-    /// 
+    /// Kontroleris skirtas valdyti uzklausas
     /// </summary>
     public class CityController : ApiController
     {
         /// <summary>
-        /// 
+        /// Paprastas get
         /// </summary>
         /// <returns></returns>
         // GET: api/City
@@ -20,7 +20,11 @@ namespace Darbbas4.Controllers
         {
             return new string[] { "value1", "value2" };
         }
-
+        /// <summary>
+        /// Metodas skirtas get uzklausos valdymui
+        /// </summary>
+        /// <param name="pav"></param>
+        /// <returns></returns>
         // GET: api/City/5
         [Cash(Duration =300)]
         public JToken Get(string pav)
@@ -48,16 +52,25 @@ namespace Darbbas4.Controllers
                 return j;
             }
         }
+        /// <summary>
+        /// Nerealizuotas
+        /// </summary>
 
         // POST: api/City
         public void Post()
         {
         }
+        /// <summary>
+        /// Nerializuotas
+        /// </summary>
 
         // PUT: api/City/5
         public void Put()
         {
         }
+        /// <summary>
+        /// Nerializuotas
+        /// </summary>
 
         // DELETE: api/City/5
         public void Delete()

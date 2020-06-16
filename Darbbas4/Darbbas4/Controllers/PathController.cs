@@ -27,6 +27,12 @@ namespace Darbbas4.Controllers
         {
             return new string[] { "value1", "value2" };
         }
+        /// <summary>
+        /// Metodas skirtas valdyti Get uzklausa.
+        /// </summary>
+        /// <param name="pav"></param>
+        /// <param name="pav2"></param>
+        /// <returns></returns>
         [Cash(Duration =300)]
         // GET: api/Path/5
         public Place Get(string pav, string pav2)
@@ -56,9 +62,6 @@ namespace Darbbas4.Controllers
                     p.ItemList.Add(datas6);
                 }
 
-
-
-
                 return p;
             }
             catch
@@ -67,18 +70,24 @@ namespace Darbbas4.Controllers
                 return p;
             }
         }
-
+        /// <summary>
+        /// Nerializuotas
+        /// </summary>
         // POST: api/Path
         [HttpPost]
         public void Post()
         {
         }
-
+        /// <summary>
+        /// Nerializuotas
+        /// </summary>
         // PUT: api/Path/5
         public void Put()
         {
         }
-
+        /// <summary>
+        /// Nerializuotas
+        /// </summary>
         // DELETE: api/ApiWithActions/5
         public void Delete()
         {

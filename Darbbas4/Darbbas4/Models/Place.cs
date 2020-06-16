@@ -7,7 +7,7 @@ using System.Web;
 namespace Darbbas4.Models
 {
     /// <summary>
-    /// 
+    /// Klase apibrezia Kelio parametrus
     /// </summary>
     public class Place
     {
