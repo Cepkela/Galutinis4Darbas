@@ -33,21 +33,21 @@ namespace Darbbas4.Controllers
                 JObject json = JObject.Parse(response.Content);
                 Place p = new Place();
                 JToken datas = json["route"];
-                p.distance = Convert.ToDouble(datas["distance"]);
+                p.Distance = Convert.ToDouble(datas["distance"]);
                 JToken datas2 = datas["legs"];
                 JToken datas3 = datas2[0];
                 JToken datas4 = datas3["maneuvers"];
 
-                p.startPoint = pav;
-                p.endPoint = pav2;
-                p.startLink = "/api/City?pav=" + pav;
-                p.endLink = "/api/City?pav=" + pav2;
+                p.StartPoint = pav;
+                p.EndPoint = pav2;
+                p.StartLink = "/api/City?pav=" + pav;
+                p.EndLink = "/api/City?pav=" + pav2;
                 int b = datas4.Count();
                 for (int i = 0; i < b; i++)
                 {
                     JToken datas5 = datas4[i];
                     JToken datas6 = datas5["streets"];
-                    p.itemList.Add(datas6);
+                    p.ItemList.Add(datas6);
                 }
 
 
