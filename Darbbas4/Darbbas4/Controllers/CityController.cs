@@ -19,6 +19,7 @@ namespace Darbbas4.Controllers
         }
 
         // GET: api/City/5
+        [Cash(Duration =300)]
         public JToken Get(string pav)
         {
             try

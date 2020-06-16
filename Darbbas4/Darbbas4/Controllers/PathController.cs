@@ -10,6 +10,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using System.Web.Caching;
 
 namespace Darbbas4.Controllers
 {
@@ -20,7 +21,7 @@ namespace Darbbas4.Controllers
         {
             return new string[] { "value1", "value2" };
         }
-
+        [Cash(Duration =300)]
         // GET: api/Path/5
         public Place Get(string pav, string pav2)
         {
