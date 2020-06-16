@@ -1,17 +1,20 @@
 ﻿using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using RestSharp;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Net.Http;
 using System.Web.Http;
 
 namespace Darbbas4.Controllers
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public class CityController : ApiController
     {
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         // GET: api/City
         public IEnumerable<string> Get()
         {
