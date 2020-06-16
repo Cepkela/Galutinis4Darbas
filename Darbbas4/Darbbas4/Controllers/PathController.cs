@@ -13,8 +13,15 @@ using System.Web.Caching;
 
 namespace Darbbas4.Controllers
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public class PathController : ApiController
     {
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         // GET: api/Path
         public IEnumerable<string> Get()
         {
