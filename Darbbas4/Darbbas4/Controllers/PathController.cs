@@ -14,7 +14,7 @@ using System.Web.Caching;
 namespace Darbbas4.Controllers
 {
     /// <summary>
-    /// 
+    /// Kontroleris skirtas valdyti uzklausas
     /// </summary>
     public class PathController : ApiController
     {

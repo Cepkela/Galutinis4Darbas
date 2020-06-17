@@ -40,7 +40,6 @@ namespace Darbbas4.Controllers
 
 
                 JObject json = JObject.Parse(response.Content);
-                string jsona = JsonConvert.SerializeObject(json, Formatting.Indented);
                 JToken datas = json["data"];
                 JToken datas2 = datas[0];
                 return datas2;
